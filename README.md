@@ -1,8 +1,8 @@
-# Pixi.js Template
+# Pixi.js Drawing Shapes
 
-Starter template with modern tooling for Pixi.js projects.
+Drawing shapes with Pixi.js using drawing function and @pixi/graphics-extras package.
 
-![bunny](https://github.com/jasonsturges/pixi-experiments/assets/1213591/dbad8bb8-32ce-4a81-9107-541c7959ab68)
+![pixi-drawing-shapes](https://github.com/jasonsturges/pixi-drawing-shapes/assets/1213591/96336890-1557-4e27-acac-7257010636be)
 
 
 ## Getting Started
