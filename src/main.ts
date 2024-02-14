@@ -1,10 +1,12 @@
-import "./style.css";
-import { Application, SCALE_MODES, Sprite } from "pixi.js";
+import { Application, Graphics } from "pixi.js";
 import { Viewport } from "pixi-viewport";
+import { useGui } from "./ui/gui.ts";
+import "./style.css";
+import "./ui/gui.ts";
 
 const canvas = document.querySelector<HTMLCanvasElement>("canvas");
 
-const app = new Application({
+export const app = new Application({
   view: canvas as HTMLCanvasElement,
   width: window.innerWidth,
   height: window.innerHeight,
@@ -15,7 +17,7 @@ const app = new Application({
   resizeTo: window,
 });
 
-const viewport = new Viewport({
+export const viewport = new Viewport({
   worldWidth: 1000,
   worldHeight: 1000,
   screenWidth: window.innerWidth,
@@ -26,16 +28,22 @@ const viewport = new Viewport({
   .pinch()
   .wheel()
   .decelerate();
-
 app.stage.addChild(viewport);
 
-const bunny = Sprite.from("https://pixijs.com/assets/bunny.png");
-bunny.texture.baseTexture.scaleMode = SCALE_MODES.NEAREST;
-bunny.anchor.set(0.5);
-bunny.x = app.screen.width / 2;
-bunny.y = app.screen.height / 2;
-viewport.addChild(bunny);
+export const graphics = viewport.addChild(new Graphics());
+export let drawFunction: () => void;
+export let animateFunction: () => void;
 
-app.ticker.add((delta: number) => {
-  bunny.rotation += 0.1 * delta;
+app.ticker.add(() => {
+  drawFunction();
 });
+
+export const setDrawFunction = (fn: () => void) => {
+  drawFunction = fn;
+};
+
+export const setAnimationFunction = (fn: () => void) => {
+  animateFunction = fn;
+};
+
+useGui();
