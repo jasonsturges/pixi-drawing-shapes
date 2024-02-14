@@ -17,6 +17,8 @@
   },
   "dependencies": {
     "@pixi/graphics-extras": "^7.4.0",
+    "lil-gui": "^0.19.1",
+    "gsap": "^3.12.5",
     "pixi-viewport": "^5.0.2",
     "pixi.js": "^7.4.0"
   },
