@@ -1,6 +1,7 @@
 {
-  "name": "pixi-template",
+  "name": "pixi-drawing-shapes",
   "version": "0.0.0",
+  "license": "ISC",
   "type": "module",
   "scripts": {
     "dev": "vite --open",
